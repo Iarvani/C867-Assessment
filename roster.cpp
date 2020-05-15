@@ -5,23 +5,13 @@
 
 using namespace std;
 
-/*void Roster::addIndex(int index) {
-	index = this->index;
-	return;
-}*/
-
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram) {
 
 	int courseDays[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
 
-	
-	
-
 		classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, courseDays, degreeProgram);
 		index++;
-	
-	//***************************** Array not saving information, return the saved array? *****************************************/
-	//Try making a public variable for loop so indexs on main and roster cpp match.   
+	 
 	return;
 }
 
