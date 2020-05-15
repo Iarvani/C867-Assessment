@@ -19,6 +19,7 @@ public:
     void printInvalidEmails();
     void remove(string studentID);
     void printByDegreeProgram(Degree degreeProgram);
+    //void printTest();
     
     //decontructor
     ~Roster();
