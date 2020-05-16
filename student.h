@@ -13,23 +13,24 @@ public:
 	//accessors / getters
 	int getAge();
 	int* getDaysInCourse();
+	
 	string getEmail();
 	string getFirstName();
 	string getLastName();
 	string getStudentId();
 	Degree getDegree();
-	
-	//mutators / setters
-	void setAge(int);
-	void setDaysInCourse(int[3]);
-	void setEmail(string);
-	void setFirstName(string);
-	void setLastName(string);
-	void setStudentId(string);
-	void setDegree(Degree);
-	void print();
 	Degree getDegreeProgram();
 	
+	//mutators / setters
+	void setStudentId(string);
+	void setFirstName(string);
+	void setLastName(string);
+	void setEmail(string);
+	void setAge(int);
+	void setDaysInCourse(int[3]);
+	void setDegree(Degree);
+	void print();
+		
 	//constructor
 	Student();
 	Student(string, string, string, string, int, int*, Degree);
