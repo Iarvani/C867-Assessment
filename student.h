@@ -11,13 +11,12 @@ class Student {
 public:
 
 	//accessors / getters
-	int getAge();
-	int* getDaysInCourse();
-	
-	string getEmail();
+	string getStudentId();
 	string getFirstName();
 	string getLastName();
-	string getStudentId();
+	string getEmail();
+	int getAge();
+	int* getDaysInCourse();
 	Degree getDegree();
 	Degree getDegreeProgram();
 	
