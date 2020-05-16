@@ -6,19 +6,9 @@
 
 using namespace std;
 
-int Student::getAge()
+string Student::getStudentId()
 {
-	return Age;
-}
-
-int* Student::getDaysInCourse()
-{
-	return DaysInCourse;
-}
-
-string Student::getEmail()
-{
-	return Email;
+	return StudentId;
 }
 
 string Student::getFirstName()
@@ -31,9 +21,19 @@ string Student::getLastName()
 	return LastName;
 }
 
-string Student::getStudentId()
+string Student::getEmail()
 {
-	return StudentId;
+	return Email;
+}
+
+int Student::getAge()
+{
+	return Age;
+}
+
+int* Student::getDaysInCourse()
+{
+	return DaysInCourse;
 }
 
 Degree Student::getDegree()
@@ -44,6 +44,30 @@ Degree Student::getDegree()
 Degree Student::getDegreeProgram()
 {
 	return DegreeType;
+}
+
+void Student::setStudentId(string studentId)
+{
+	StudentId = studentId;
+	return;
+}
+
+void Student::setFirstName(string firstName)
+{
+	FirstName = firstName;
+	return;
+}
+
+void Student::setLastName(string lastName)
+{
+	LastName = lastName;
+	return;
+}
+
+void Student::setEmail(string email)
+{
+	Email = email;
+	return;
 }
 
 void Student::setAge(int age)
@@ -60,31 +84,6 @@ void Student::setDaysInCourse(int* daysInCourse)
 	}
 	return;
 }
-
-void Student::setEmail(string email)
-{
-	Email = email;
-	return;
-}
-
-void Student::setFirstName(string firstName)
-{
-	FirstName = firstName;
-	return;
-}
-
-void Student::setLastName(string lastName)
-{
-	LastName = lastName;
-	return;
-}
-
-void Student::setStudentId(string studentId)
-{
-	StudentId = studentId;
-	return;
-}
-
 void Student::setDegree(Degree degreeType)
 {
 	DegreeType = degreeType;
