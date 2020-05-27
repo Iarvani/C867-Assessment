@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// Accessor method definitions
+
 string Student::getStudentId()
 {
 	return StudentId;
@@ -46,6 +48,8 @@ Degree Student::getDegreeProgram()
 	return DegreeType;
 }
 
+// mutator method definitions
+
 void Student::setStudentId(string studentId)
 {
 	StudentId = studentId;
@@ -79,16 +83,52 @@ void Student::setAge(int age)
 void Student::setDaysInCourse(int* daysInCourse)
 {
 	for (int i = 0; i < 3; i++) {
-		
+
 		DaysInCourse[i] = daysInCourse[i];
 	}
 	return;
 }
+
 void Student::setDegree(Degree degreeType)
 {
 	DegreeType = degreeType;
 	return;
 }
+
+// print method definition
+
+void Student::print()
+{
+	int* daysInCourse = getDaysInCourse();
+
+	cout << getStudentId() << "   ";
+	cout << "First Name: " << getFirstName() << "   ";//tab = 3 spaces, tab button, or "/t" 
+	cout << "Last Name: " << getLastName() << "   ";
+	cout << "Email: " << getEmail() << "   ";
+	cout << "Age: " << getAge() << "   ";
+	cout << "daysInCourse: { " << daysInCourse[0] << "," << daysInCourse[1] << "," << daysInCourse[2] << " }   ";
+	cout << "Degree Program: ";
+
+	if (getDegree() == Degree::SECURITY) {
+
+		cout << "Security";
+	}
+
+	else if (getDegree() == Degree::NETWORK) {
+
+		cout << "Network";
+	}
+
+	else if (getDegree() == Degree::SOFTWARE) {
+
+		cout << "Software";
+	}
+
+	cout << endl;
+	return;
+}
+
+// Contructor
 
 Student::Student() {
 
@@ -105,36 +145,7 @@ Student::Student(string studentId, string firstName, string lastName, string ema
 	setDegree(degreeType);
 }
 
-void Student::print()
-{
-	int* daysInCourse = getDaysInCourse();
-
-	cout << getStudentId() << "   ";
-	cout << "First Name: " << getFirstName() << "	";//tab = 3 spaces, tab button, or "/t" 
-	cout << "Last Name: " << getLastName() << "   ";
-	cout << "Email: " << getEmail() << "   ";
-	cout << "Age: " << getAge() << "   ";
-	cout << "daysInCourse: { " << daysInCourse[0] << "," << daysInCourse[1] << "," << daysInCourse[2] << " }   ";
-	cout << "Degree Program: ";
-
-	if (getDegreeProgram() == Degree::SECURITY) {
-
-		cout << "Security";
-	}
-
-	else if (getDegreeProgram() == Degree::NETWORK) {
-
-		cout << "Network";
-	}
-
-	else if (getDegreeProgram() == Degree::SOFTWARE) {
-
-		cout << "Software";
-	}
-
-	cout << endl;
-	return;
-}
+// Deconstructor
 
 Student::~Student()
 {

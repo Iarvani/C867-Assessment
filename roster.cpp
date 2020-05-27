@@ -5,61 +5,47 @@
 
 using namespace std;
 
+/******************************************************
+*  Adding student objects to the class roster array   *
+******************************************************/
+
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram) {
 
 	int courseDays[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
 
 		classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, courseDays, degreeProgram);
 		index++;
-	 
+	
 	return;
 }
 
-/*void Roster::printTest() {
-	char userKey = ' ';
-	cin >> userKey;
-	while (userKey != 'q') {
-		if (userKey == '1') {
-			classRosterArray[0]->print();
-			cin >> userKey;
-		}
-		if (userKey == '2') {
-			classRosterArray[1]->print();
-			cin >> userKey;
-		}
-		if (userKey == '3') {
-			classRosterArray[2]->print();
-			cin >> userKey;
-		}
-		if (userKey == '4') {
-			classRosterArray[3]->print();
-			cin >> userKey;
-		}
-		if (userKey == '5') {
-			classRosterArray[4]->print();
-			cin >> userKey;
-		}
-		else if (userKey == 'q') {
-			break;
-		}
-	}
-	return;
-}*/
+/******************************************************
+*  Rotate through array to print each element provided*
+*  that the array is not a null value.                *
+******************************************************/
 
 void Roster::printAll() {
 
-	for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
-		classRosterArray[i]->print();
+	for (int i = 0; i < 5; i++) {
+
+		if (classRosterArray[i] != nullptr) {
+			classRosterArray[i]->print();
+		}
 	}
 	return;
 }
+
+/******************************************************
+*  Calculate average of days in 3 courses and print   *
+*  the value.                                         *
+******************************************************/
 
 void Roster::printDaysInCourse(string studentID) {
 
 	int avgerage = 0;
 	int maxVal = 3;
 
-	for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
+	for (int i = 0; i < 5; i++) {
 
 		if (classRosterArray[i] != nullptr && classRosterArray[i]->getStudentId() == studentID) {
 
@@ -76,67 +62,81 @@ void Roster::printDaysInCourse(string studentID) {
 	return;
 }
 
+/******************************************************
+*  Check for characters @ before '.' and no 'space'   *
+*  in array email values.                             *
+******************************************************/
+
 void Roster::printInvalidEmails() {
 
-	for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
+	for (int i = 0; i < 5; i++) {
 
 		string email = classRosterArray[i]->getEmail();
 		bool isBad = false;
-		// look for missing @, periods, or emails containing spaces
 		size_t found = email.find("@");
+
 		if (found != string::npos) {
-			
 			found = email.find(".");
 			
 			if (found != string::npos) {
-				
 				found = email.find(" ");
 				
 				if (found == string::npos) {
-					
 					isBad = true;
 				}
 			}
 		}
 
 		if (!isBad) {
-
 			cout << email << " : invalid email address." << endl;
 		}
 	}
 	return;
 }
 
+/******************************************************
+*  checks studentid(sID) to the studentid arguement   *
+*  and deletes that position in the array.            *
+******************************************************/
+
 void Roster::remove(string studentID) {
 
 	bool iDfound = false;
-
-	for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
-		
-		string sID = classRosterArray[i]->getStudentId();
-		bool iDfound = false;
-		
-		if (sID == studentID) {
-			classRosterArray[i] = nullptr;
-			cout << "Student: " << studentID << " was successfully removed." << endl;
-			iDfound = true;
-			break;
-		}
-		else {
-			iDfound = false;
-		}
-	}
+	string sID = "";
+	int i = 0;
 	
-	if (iDfound == false) {
-		cout << "Student ID '" << studentID << "' not found." << endl;
+	while (i < 5) {
+		
+		if (classRosterArray[i] != nullptr) {
+			sID = classRosterArray[i]->getStudentId();
+		}
+		if (sID == studentID) {
+
+			classRosterArray[i] = nullptr;
+			cout << "Student #'" << studentID << "' was successfully removed." << endl;
+			delete classRosterArray[i];
+			iDfound == true;
+			return; // using return to break the loop, break; was not working correctly for some reason
+		}
+		i++;
 	}
+
+	if (iDfound == false) {
+		cout << "Student #'" << studentID << "' could not be found." << endl;
+ 	}
+
 	return;
 }
+
+/******************************************************
+*  pull the degree value from the roster and compair  *
+*  to the arguement value.                            *
+******************************************************/
 
 void Roster::printByDegreeProgram(Degree degreeProgram) {
 	
 
-	for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
+	for (int i = 0; i < 5; i++) {
 
 		Degree studentDegree = classRosterArray[i]->getDegreeProgram();
 		

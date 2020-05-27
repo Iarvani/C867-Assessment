@@ -8,9 +8,10 @@
 using namespace std;
 
 class Student {
+
 public:
 
-	//accessors / getters
+	//accessors methods
 	string getStudentId();
 	string getFirstName();
 	string getLastName();
@@ -20,7 +21,7 @@ public:
 	Degree getDegree();
 	Degree getDegreeProgram();
 	
-	//mutators / setters
+	//mutators methods
 	void setStudentId(string);
 	void setFirstName(string);
 	void setLastName(string);
@@ -28,22 +29,28 @@ public:
 	void setAge(int);
 	void setDaysInCourse(int[3]);
 	void setDegree(Degree);
+	
+	//method for print structure
 	void print();
-		
+	
 	//constructor
 	Student();
-	Student(string, string, string, string, int, int*, Degree);
+	
+	Student(string studentId, string firstName, string lastName, string email, int age, int daysInCourse[3], Degree degreeType);
 	
 	//deconstructor
 	~Student();
+
 private:
-	int Age;
-	int DaysInCourse[3];
-	string Email;
+	
+	string StudentId;
 	string FirstName;
 	string LastName;
-	string StudentId;
+	string Email;
+	int Age;
+	int DaysInCourse[3];
 	Degree DegreeType;
+
 };
 
 

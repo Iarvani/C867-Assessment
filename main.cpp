@@ -62,21 +62,36 @@ int main() {
     cout << endl << endl << endl << endl;
 
     classRoster.printAll();
+    cout << "-------------------------------------------------------------------------------------------";
     cout << endl << endl;
     
     classRoster.printInvalidEmails();
+    cout << "-------------------------------------------------------------------------------------------";
     cout << endl << endl;
     
     for (int i = 0; i < sizeof(classRoster.classRosterArray) / sizeof(classRoster.classRosterArray[i]); i++) {
         classRoster.printDaysInCourse(classRoster.classRosterArray[i]->getStudentId());
     }
+    cout << "-------------------------------------------------------------------------------------------";
     cout << endl << endl;
     
     classRoster.printByDegreeProgram(Degree::SOFTWARE);
+    cout << "-------------------------------------------------------------------------------------------";
     cout << endl << endl;
     
     classRoster.remove("A3");
+    cout << "-------------------------------------------------------------------------------------------";
+    cout << endl << endl;
+
+    classRoster.printAll();
+    cout << "-------------------------------------------------------------------------------------------";
+    cout << endl << endl;
+
     classRoster.remove("A3");
+    cout << "-------------------------------------------------------------------------------------------";
+    cout << endl << endl;
+
+    
     
 
     //expected: the above line should print a message saying such a student with this ID was not found.

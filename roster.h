@@ -12,14 +12,13 @@ public:
     
     int index = 0;
     
-    //functions
+    // Methods
     void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram);
     void printAll();
     void printDaysInCourse(string studentID);
     void printInvalidEmails();
     void remove(string studentID);
     void printByDegreeProgram(Degree degreeProgram);
-    //void printTest();
     
     //decontructor
     ~Roster();
